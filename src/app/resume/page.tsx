@@ -73,16 +73,18 @@ export default function ResumePage() {
                                         <div className={styles.project} key={project.id}>
                                             <h4>{project.title}</h4>
                                             <p>{project.description}</p>
-                                            <div className={styles.projectImage}>
-                                                {project.images.map((imgSrc, index) => (
-                                                    <Image 
-                                                        key={index}
-                                                        src={imgSrc} 
-                                                        alt={project.title} 
-                                                        width={200}
-                                                        height={300} 
-                                                    />
-                                                ))}
+                                            <div className={styles.projectScroll}>
+                                                <div className={styles.projectImage}>
+                                                    {project.images.map((imgSrc, index) => (
+                                                        <Image 
+                                                            key={index}
+                                                            src={imgSrc} 
+                                                            alt={project.title} 
+                                                            width={200}
+                                                            height={300} 
+                                                        />
+                                                    ))}
+                                                </div>
                                             </div>
                                         </div>
                                     ))}

@@ -18,13 +18,6 @@ const pageTransitionVariants: Variants = {
             ease: 'easeInOut',
         },
     },
-    exit: {
-        opacity: 0,
-        transition: {
-            duration: 0.5, 
-            ease: 'easeInOut',
-        },
-    },
 };
 
 interface TransitionProviderProps {
@@ -46,7 +39,6 @@ export default function TransitionProvider({ children }: TransitionProviderProps
                 key={pathname} 
                 initial="initial"
                 animate="animate"
-                exit="exit"
                 variants={pageTransitionVariants}
                 style={{ 
                     width: '100%', 

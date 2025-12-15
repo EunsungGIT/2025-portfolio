@@ -4,7 +4,7 @@ import { ResumeData, Experience, Education, LinkInfo } from './resumeType';
 const RESUME_LINKS: LinkInfo[] = [
     {
         name: 'GitHub',
-        url: 'https://github.com/developer-kes/',
+        url: 'https://github.com/EunsungGIT',
         iconSrc: '/images/stacks/github.png',
     },
     {

@@ -387,6 +387,9 @@
         text-align: center;
         line-height: 1.4;
     }
+    .projectSwiper {
+        margin-bottom: 20px;
+    }
     .projectButton a {
         font-size: 16px;
     }

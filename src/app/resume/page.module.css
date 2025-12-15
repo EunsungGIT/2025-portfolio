@@ -149,6 +149,10 @@
 .project p {
     color: #aaa;
 }
+.projectScroll {
+    width: 100%;
+    overflow-y: auto;
+}
 .projectImage {
     display: flex;
     gap: 20px;
@@ -246,7 +250,30 @@
     .resumeSection {
         padding: 200px 20px;
     }
+    .contentList li {
+        line-height: 1.4;
+    }
 }
 @media (max-width: 800px) {
-
+    .resumeSection {
+        padding: 100px 20px;
+    }
+    .introTitle h2 {
+        font-size: 20px;
+    }
+    .workList li {
+        line-height: 1.4;
+    }
+    .project {
+        padding: 30px;
+    }
+    .project p {
+        line-height: 1.4;
+    }
+    .stackItem h4 {
+        font-size: 14px;
+    }
+    .education h3 {
+        line-height: 1.4;
+    }
 }
