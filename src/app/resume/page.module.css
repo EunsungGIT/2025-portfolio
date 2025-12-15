@@ -1,0 +1,252 @@
+.resumeSection {
+    padding: 200px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.introSection {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 100px;
+}
+.introTitle {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+}
+.introTitle h2 {
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 1.4;
+}
+.introTitle p {
+    line-height: 1.4;
+    color: #aaa;
+}
+.introCall {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+}
+.introCall h2 {
+    color: #0064FF;
+    font-weight: bold;
+}
+.introCallList {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 40px;
+}
+.introLink {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+}
+.introLink h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+}
+.linkButton {
+    display: flex;
+    gap: 10px;
+}
+.linkButton a {
+    background: #171717;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #aaa;
+    transition: 0.5s;
+}
+.linkButton a:hover {
+    color: #fff;
+}
+.introContact {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+}
+.introContact h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+}
+.contactItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.contactItem p {
+    color: #aaa;
+}
+
+/* CAREER */
+.careerSection {
+    padding: 100px 0;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+}
+.careerSection h2 {
+    color: #0064FF;
+    font-weight: bold;
+}
+.careerList {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 40px;
+}
+.career {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+}
+.carrerTitle {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+}
+.carrerTitle h3 {
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+}
+.carrerTitle p {
+    color: #aaa;
+}
+.careerSummary {
+    color: #aaa;
+}
+.workList {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+}
+.workList li {
+    color: #aaa;
+}
+.projectList {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+}
+.project {
+    background: #171717;
+    border-radius: 10px;
+    padding: 40px;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+}
+.project h4 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+}
+.project p {
+    color: #aaa;
+}
+.projectImage {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+/* STACK */
+.stackSection {
+    padding: 100px 0;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+}
+.stackSection h2 {
+    color: #0064FF;
+    font-weight: bold;
+}
+.stackList {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+}
+.stackCategory {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+}
+.stackCategory h3 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+}
+.stackItemList {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 10px;
+}
+.stackItem {
+    background: #171717;
+    border-radius: 10px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: max-content;
+}
+.stackItem:hover .stackContent {
+    color: #fff;
+}
+.stackContent {
+    color: #aaa;
+    transition: 0.5s;
+}
+
+/* EDUCATION */
+.educationSection {
+    padding-top: 100px;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+}
+.educationSection h2 {
+    color: #0064FF;
+    font-weight: bold;
+}
+.educationList {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+}
+.education {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+}
+.education h3 {
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+}
+.education p {
+    color: #aaa;
+}
+.contentList {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+}
+.contentList li {
+    color: #aaa;
+}
+
+/* 반응형 */
+@media (max-width: 1200px) {
+    .resumeSection {
+        padding: 200px 20px;
+    }
+}
+@media (max-width: 800px) {
+
+}

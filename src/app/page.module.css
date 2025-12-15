@@ -1,0 +1,407 @@
+/* INTRO */
+.introSection {
+    height: 800px;
+    position: relative;
+}
+.background {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.2);
+}
+.introContainer {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+.introContainer h2 {
+    color: #fff;
+    font-size: 60px;
+    font-weight: bold;
+}
+.introContainer p {
+    font-size: 20px;
+    color: #fff;
+    line-height: 1.4;
+}
+.introContainer p em {
+    color: #0064FF;
+    font-weight: bold;
+}
+.introLink {
+    display: flex;
+    gap: 20px;
+}
+.introLink a {
+    border-radius: 50px;
+    padding: 10px 20px;
+    color: #fff;
+    background: #0064FF;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.5s;
+}
+.introLink a:hover {
+    background: #003481;
+}
+
+/* COMPETENCY */
+.competencySection {
+    padding: 100px 0;
+}
+.competencyTitle {
+    margin-bottom: 40px;
+    text-align: center;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+}
+.competencyTitle h2 {
+    color: #0064FF;
+    font-weight: bold;
+}
+.competencyTitle p {
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+}
+.competencyContainer {
+    display: flex;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.competencyCard {
+    width: calc(100% / 3);
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+    background: #171717;
+    border-radius: 10px;
+    padding: 20px;
+}
+.competencyIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+}
+.competencyCard h3 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+}
+.competencyCard p {
+    color: #aaa;
+    line-height: 1.4;
+}
+
+/* STACK */
+.stackSection {
+    padding: 100px 0;
+}
+.stackTitle {
+    margin-bottom: 40px;
+    text-align: center;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+}
+.stackTitle h2 {
+    color: #0064FF;
+    font-weight: bold;
+}
+.stackTitle p {
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+}
+.stackContainer {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.stackMenu {
+    display: flex;
+    border-radius: 10px;
+    padding: 10px;
+    width: max-content;
+    border: 1px solid #171717;
+    width: 800px;
+}
+.stackMenu button {
+    width: calc(100% / 3);
+    padding: 10px 0;
+    border-radius: 10px;
+    color: #aaa;
+    background: none;
+    font-size: 16px;
+}
+.stackMenu button.active {
+    background: #171717;
+    color: #fff;
+}
+.stackList {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 20px;
+}
+.stackItem {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: calc(50% - 10px);
+    background: #171717;
+    border-radius: 10px;
+    padding: 20px;
+}
+.stackIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.stackContent {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+}
+.stackContent h3 {
+    color: #fff;
+}
+.stackContent p {
+    color: #aaa;
+    line-height: 1.4;
+}
+
+/* PROJECT */
+.projectSection {
+    padding: 100px 0;
+}
+.projectContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.projectTitle {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+.projectTitle h2 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+}
+.projectTitle p {
+    color: #aaa;
+}
+.projectSwiper {
+    margin-bottom: 40px;
+}
+.projectSwiper :global(.swiper-button-prev) {
+    left: 0 !important;
+    width: 15px;
+}
+.projectSwiper :global(.swiper-button-next) {
+    right: 0 !important;
+    width: 15px;
+}
+.projectCard {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+.projectImage {
+    width: 50%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.projectImage img {
+    width: 100%;
+    object-fit: cover;
+}
+.projectContent {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+    width: 50%;
+}
+.projectContent h3 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+}
+.projectContent p {
+    color: #aaa;
+    line-height: 1.4;
+}
+.projectButton {
+    display: flex;
+    justify-content: center;
+}
+.projectButton a {
+    color: #0064FF;
+    font-size: 20px;
+    transition: 0.5s;
+}
+.projectButton:hover a {
+    color: #003481;
+}
+
+/* CONTACT */
+.contactSection {
+    padding: 100px 0;
+}
+.contactContainer {
+    border-radius: 10px;
+    background: #171717;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+    background-image: url(../../public/images/icons/contact.png);
+    background-position: right 40px center;
+    background-repeat: no-repeat;
+    background-size: 300px;
+}
+.contactContainer h2 {
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 1.4;
+}
+.contactContainer p {
+    color: #aaa;
+    line-height: 1.4;
+}
+.contactContainer a {
+    color: #fff;
+    border-radius: 50px;
+    padding: 15px 20px;
+    background: #0064FF;
+    width: max-content;
+    transition: 0.5s;
+}
+.contactContainer a:hover {
+    background: #003481;
+}
+
+/* 반응형 */
+@media (max-width: 1200px) {
+    .introSection {
+        height: 500px;
+    }
+    .introContainer {
+        width: calc(100% - 40px);
+        gap: 20px;
+    }
+    .introContainer h2 {
+        font-size: 30px;
+    }
+    .introContainer p {
+        font-size: 16px;
+    }
+    .introLink a {
+        padding: 10px 20px;
+    }
+    .competencySection {
+        padding: 100px 20px;
+    }
+    .competencyContainer {
+        flex-flow: column nowrap;
+        width: 100%;
+    }
+    .competencyCard {
+        width: 100%;
+    }
+    .stackSection {
+        padding: 100px 20px;
+    }
+    .projectContainer {
+        padding: 0 20px;
+    }
+    .contactSection {
+        padding: 100px 20px;
+    }
+}
+@media (max-width: 800px) {
+    .competencyContainer {
+        gap: 20px;
+    }
+    .competencyTitle p {
+        font-size: 20px;
+    }
+    .competencyCard {
+        gap: 10px;
+    }
+    .competencyCard h3 {
+        font-size: 16px;
+    }
+    .competencyIcon img {
+        width: 20px;
+        height: 20px;
+    }
+    .stackTitle p {
+        font-size: 20px;
+    }
+    .stackContainer {
+        gap: 20px;
+    }
+    .stackMenu {
+        width: 100%;
+    }
+    .stackItem {
+        width: 100%;
+    }
+    .stackContent p {
+        font-size: 14px;
+    }
+    .projectImage {
+        width: 100%;
+    }
+    .projectContent {
+        display: none;
+    }
+    .projectTitle {
+        margin-bottom: 20px;
+    }
+    .projectTitle h2 {
+        font-size: 20px;
+        text-align: center;
+    }
+    .projectTitle p {
+        text-align: center;
+        line-height: 1.4;
+    }
+    .projectButton a {
+        font-size: 16px;
+    }
+    .contactContainer {
+        text-align: center;
+        background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+        url(../../public/images/icons/contact.png);
+        background-size: contain;
+        background-position: center center;
+    }
+    .contactContainer h2 {
+        font-size: 20px;
+    }
+    .contactContainer a {
+        width: 100%;
+    }
+}

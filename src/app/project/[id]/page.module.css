@@ -1,0 +1,192 @@
+.detailSection {
+    display: flex;
+    gap: 60px;
+    padding: 200px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.detailContentWrap {
+    width: 70%;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 60px;
+}
+.mySwiper2 {
+    margin-bottom: 10px;
+}
+.mySwiper2Slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.mySwiper2 :global(.swiper-button-prev) {
+    left: 0 !important;
+    width: 15px;
+}
+.mySwiper2 :global(.swiper-button-next) {
+    right: 0 !important;
+    width: 15px;
+}
+.mySwiperSlide {
+    opacity: 0.5;
+}
+.mySwiperSlide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.detailSwiperWrap :global(.mySwiper .swiper-slide-thumb-active) {
+    opacity: 1;
+}
+.detailStackWrap {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+}
+.detailStackWrap h3 {
+    font-weight: bold;
+    color: #fff;
+}
+.detailStackWrap p {
+    line-height: 1.4;
+    color: #aaa;
+}
+.detailStack {
+    display: flex;
+    gap: 10px;
+    flex-flow: row wrap;
+}
+.stackButton {
+    color: #aaa;
+    background: #171717;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+.stackButton:hover {
+    color: #fff;
+}
+.detailWork {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+}
+.detailWork h3 {
+    font-weight: bold;
+    color: #fff;
+}
+.detailWork p {
+    line-height: 1.4;
+    color: #aaa;
+}
+
+/* R */
+.detailTitle {
+    width: 30%;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 40px;
+}
+.detailTitle h2 {
+    font-size: 40px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 20px;
+}
+.detailExplain {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+}
+.detailExplain h3 {
+    color: #fff;
+    font-weight: bold;
+}
+.detailExplain p {
+    color: #aaa;
+    line-height: 1.4;
+}
+.detailPeriod {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+}
+.detailPeriod h3 {
+    color: #fff;
+    font-weight: bold;
+}
+.detailPeriod p {
+    color: #aaa;
+}
+.detailHeadcount {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+}
+.detailHeadcount h3 {
+    color: #fff;
+    font-weight: bold;
+}
+.detailHeadcount p {
+    color: #aaa;
+}
+.detailLinkWrap {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+}
+.detailLinkWrap h3 {
+    color: #fff;
+    font-weight: bold;
+}
+.detailLink {
+    display: flex;
+    gap: 10px;
+}
+.detailLink a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #171717;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+}
+.resultButton {
+    padding: 20px 0;
+    color: #fff;
+    background: #0064FF;
+    border-radius: 50px;
+    text-align: center;
+    transition: 0.5s;
+}
+.resultButton:hover {
+    background: #003481;
+}
+
+/* 반응형 */
+@media (max-width: 1200px) {
+    .detailSection {
+        padding: 200px 20px;
+    }
+}
+@media (max-width: 800px) {
+    .detailSection {
+        flex-flow: column-reverse nowrap;
+        padding: 100px 20px;
+    }
+    .detailContentWrap {
+        width: 100%;
+    }
+    .detailTitle {
+        width: 100%;
+    }
+    .detailTitle h2 {
+        margin: 0;
+        font-size: 30px;
+    }
+}
