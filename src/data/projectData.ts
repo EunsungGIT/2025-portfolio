@@ -46,7 +46,7 @@ export const PROJECTS: Project[] = [
         period: "2024.02 - 2024.03",
         githubLink: "https://github.com/EunsungGIT/TeamProjectWavve",
         figmaLink: "https://www.figma.com/proto/PhqRCxpefyBWCcOAhfM75s/Wavve-Team-Project?page-id=0%3A1&type=design&node-id=1-2&viewport=241%2C509%2C0.03&t=AlyfLtVwe8TtGUvH-1&scaling=contain",
-        resultLink: "https://yunaweb.pe.kr/wave_frontend24/#",
+        resultLink: "https://wavve-five.vercel.app/",
     },
     {
         id: "gymshark",
