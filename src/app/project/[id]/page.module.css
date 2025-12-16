@@ -13,6 +13,7 @@
 }
 .mySwiper2 {
     margin-bottom: 10px;
+    height: 500px;
 }
 .mySwiper2Slide img {
     width: 100%;
@@ -30,12 +31,7 @@
 .mySwiperSlide {
     opacity: 0.5;
 }
-.mySwiperSlide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.detailSwiperWrap :global(.mySwiper .swiper-slide-thumb-active) {
+.mySwiper :global(.swiper-slide-thumb-active) {
     opacity: 1;
 }
 .detailStackWrap {
@@ -82,6 +78,7 @@
 .detailWork p {
     line-height: 1.4;
     color: #aaa;
+    white-space: pre-line;
 }
 
 /* R */
@@ -188,5 +185,16 @@
     .detailTitle h2 {
         margin: 0;
         font-size: 30px;
+    }
+    .mySwiper2 {
+        margin: 0;
+        height: 250px;
+    }
+    .mySwiper2 :global(.swiper-button-prev),
+    .mySwiper2 :global(.swiper-button-next) {
+        display: none;
+    }
+    .mySwiper {
+        display: none !important;
     }
 }

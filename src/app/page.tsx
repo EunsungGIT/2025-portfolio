@@ -2,8 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useState, useRef } from "react";
 import styles from "./page.module.css";
-import { useState } from "react";
+
+/* DATA */
 import { STACKS, StackCategory } from '@/data/stackData';
 import { PROJECTS } from '@/data/projectData';
 
@@ -14,17 +16,18 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 
 export default function Home() {
-    // 1. 카테고리 목록 정의 (데이터에서 추출)
-    const CATEGORIES = STACKS.map(s => s.menu); // ['개발', '디자인', '배포']
-    
-    // 2. 상태 정의: 현재 선택된 카테고리 (기본값: '개발')
+    /* 기술 */
+    const CATEGORIES = STACKS.map(s => s.menu);
     const [selectedCategory, setSelectedCategory] = useState<StackCategory['menu']>('개발');
-
-    // 3. 필터링: 선택된 카테고리 그룹 찾기
     const selectedStackGroup = STACKS.find(stack => stack.menu === selectedCategory);
     const filteredStacks = selectedStackGroup ? selectedStackGroup.icons : [];
 
+    /* 최신 프로젝트 */
     const featuredProjects = PROJECTS.slice(0, 3);
+
+    /* SWIPER 이전과 다음 */
+    const prevRef = useRef(null);
+    const nextRef = useRef(null);
 
     return (
         <main>
@@ -42,7 +45,7 @@ export default function Home() {
                     <h2>Front-end Developer</h2>
                     <p>프론트엔드 개발과 퍼블리싱을 주로 다루며, 새로운 기술에 발빠르게 적응하고<br />단기간에 완성도 높은 결과물을 도출하는 <em>"스프린터 개발자"</em> 입니다.</p>
                     <div className={styles.introLink}>
-                        <Link href="https://github.com/developer-kes/" target="_blank" rel="noopener noreferrer" aria-label="GitHub Link">
+                        <Link href="https://github.com/EunsungGIT" target="_blank" rel="noopener noreferrer" aria-label="GitHub Link">
                             <Image src='/images/stacks/github.png' alt="GitHub" width={20} height={20} />
                             GitHub
                         </Link>
@@ -133,16 +136,36 @@ export default function Home() {
             {/* PROJECT */}
             <section className={styles.projectSection}>
                 <div className={styles.projectContainer}>
-                    <div className={styles.projectTitle}>
-                        <h2>최근 작업한 프로젝트</h2>
-                        <p>React, Next.js를 사용한 프로젝트부터 퍼블리싱을 이용한 최근 작업 목록입니다.</p>
+                    <div className={styles.projectTop}>
+                        <div className={styles.projectTitle}>
+                            <h2>최근 작업한 프로젝트</h2>
+                            <p>React, Next.js를 사용한 프로젝트부터 퍼블리싱을 이용한 최근 작업 목록입니다.</p>
+                        </div>
+                        <div className={styles.navigationControl}>
+                            <div ref={prevRef} className={styles.customPrevButton}>
+                                <Image src="/images/icons/prev.png" alt="이전" width={40} height={40}
+                                />
+                            </div>
+                            <div ref={nextRef} className={styles.customNextButton}>
+                                <Image src="/images/icons/next.png" alt="다음" width={40} height={40} />
+                            </div>
+                        </div>
                     </div>
                     <Swiper
+                        navigation={{
+                            prevEl: prevRef.current,
+                            nextEl: nextRef.current,
+                        }}
+                        onBeforeInit={(swiper) => {
+                            if (swiper.params.navigation && typeof swiper.params.navigation !== 'boolean') {
+                                swiper.params.navigation.prevEl = prevRef.current;
+                                swiper.params.navigation.nextEl = nextRef.current;
+                            }
+                        }}
                         style={{
                             '--swiper-navigation-color': 'var(--primary-color, #aaa)',
                             '--swiper-pagination-color': 'var(--primary-color, #aaa)',
                         } as React.CSSProperties}
-                        navigation={true}
                         modules={[Navigation]}
                         className={styles.projectSwiper}
                         slidesPerView={1}
@@ -179,8 +202,8 @@ export default function Home() {
             {/* CONTACT */}
             <section className={styles.contactSection}>
                 <div className={styles.contactContainer}>
-                    <h2>프로젝트의 목표를 함께 완성해<br />나갈 동료가 되겠습니다.</h2>
-                    <p>단순히 코드를 작성하는 것을 넘어, 비즈니스의 성공을 함께 고민하는 동료를 찾으신다면,<br />기꺼이 그 여정에 함께하고 싶습니다.</p>
+                    <h2>함께 성장하며 최고의 결과를 만들어<br />낼 준비된 프론트엔드 개발자입니다.</h2>
+                    <p>빠르게 변화하는 기술 트렌드를 학습하고 적용하는 능력을 바탕으로,<br />팀의 목표 달성에 가장 능동적으로 기여하는 동료가 되겠습니다.</p>
                     <Link href="/contact">CONTACT</Link>
                 </div>
             </section>

@@ -22,6 +22,7 @@
 .introTitle p {
     line-height: 1.4;
     color: #aaa;
+    width: 50%;
 }
 .introCall {
     display: flex;
@@ -85,7 +86,7 @@
 
 /* CAREER */
 .careerSection {
-    padding: 100px 0;
+    padding-top: 100px;
     display: flex;
     flex-flow: column nowrap;
     gap: 20px;
@@ -148,6 +149,7 @@
 }
 .project p {
     color: #aaa;
+    line-height: 1.4;
 }
 .projectScroll {
     width: 100%;
@@ -161,7 +163,7 @@
 
 /* STACK */
 .stackSection {
-    padding: 100px 0;
+    padding-top: 100px;
     display: flex;
     flex-flow: column nowrap;
     gap: 20px;
@@ -228,13 +230,18 @@
     flex-flow: column nowrap;
     gap: 20px;
 }
-.education h3 {
+.educationTitle h3 {
     color: #fff;
     font-weight: bold;
     font-size: 20px;
 }
-.education p {
+.educationTitle p {
     color: #aaa;
+}
+.educationTitle {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
 }
 .contentList {
     display: flex;
@@ -261,19 +268,27 @@
     .introTitle h2 {
         font-size: 20px;
     }
+    .introTitle p {
+        width: 100%;
+    }
+    .carrerTitle {
+        flex-flow: column nowrap;
+        align-items: flex-start;
+    }
     .workList li {
         line-height: 1.4;
     }
     .project {
         padding: 30px;
     }
-    .project p {
-        line-height: 1.4;
-    }
     .stackItem h4 {
         font-size: 14px;
     }
     .education h3 {
         line-height: 1.4;
+    }
+    .educationTitle {
+        flex-flow: column nowrap;
+        align-items: flex-start;
     }
 }

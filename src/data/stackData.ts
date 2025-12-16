@@ -1,17 +1,14 @@
-// 1. 개별 스킬 아이콘의 타입 정의
 export interface StackIcon {
-    name: string; // 예: "React"
-    src: string;  // 예: "/images/stacks/react.png"
-    description: string; // 추가: 해당 스택으로 할 수 있는 내용
+    name: string;
+    src: string;
+    description: string;
 }
 
-// 2. 카테고리(메뉴) 그룹의 타입 정의
 export interface StackCategory {
-    menu: '개발' | '디자인' | '배포'; // 카테고리 메뉴
+    menu: '개발' | '디자인' | '배포';
     icons: StackIcon[];
 }
 
-// 3. 실제 스택 데이터
 export const STACKS: StackCategory[] = [
     {
         menu: "개발",
@@ -34,22 +31,22 @@ export const STACKS: StackCategory[] = [
         { 
             name: "CSS3", 
             src: "/images/stacks/css3.png", 
-            description: 'Flexbox, Grid 등을 활용하여 다양한 반응형 UI를 구현합니다.'
+            description: 'Flexbox, Grid 등을 활용한 반응형 UI 구현은 물론, CSS 변수를 이용한 디자인 토큰 관리 및 효율적인 스타일링을 추구합니다.'
         },
         { 
             name: "JavaScript", 
             src: "/images/stacks/javascript.png", 
-            description: 'ES6+ 문법을 활용하여 클라이언트 측 동적 로직을 구현합니다.'
+            description: '비동기 처리(Promise, async/await) 및 ES6+ 최신 문법을 활용하여 클라이언트 측 동적 로직을 최적화하고 구현합니다.'
         },
         { 
             name: "Sass", 
             src: "/images/stacks/sass.png", 
-            description: '변수, 믹스인 등 전처리기 기능을 활용하여 스타일 코드를 체계적으로 관리합니다.'
+            description: '변수, 믹스인, extends 등 전처리기 기능을 활용하여 스타일 코드를 모듈화하고 체계적인 구조로 관리합니다. (BEM 방법론 등)'
         },
         { 
             name: "Jquery", 
             src: "/images/stacks/jquery.png", 
-            description: '기존 프로젝트 유지보수 및 DOM 조작을 빠르고 효율적으로 처리할 수 있습니다.'
+            description: '레거시 프로젝트의 유지보수 및 단순 DOM 조작에 능숙하며, 브라우저 호환성 문제를 효율적으로 처리할 수 있습니다.'
         },
         { 
             name: "Firebase", 
@@ -59,12 +56,12 @@ export const STACKS: StackCategory[] = [
         { 
             name: "TypeScript", 
             src: "/images/stacks/typescript.png", 
-            description: '정적 타입을 사용하여 코드 안정성과 개발 생산성을 향상시킵니다.'
+            description: '정적 타입 시스템을 도입하여 런타임 오류를 사전에 방지하고, 대규모 프로젝트의 코드 안정성과 유지보수성을 극대화합니다.'
         },
         { 
             name: "Next.js", 
             src: "/images/stacks/next.png", 
-            description: '정적 타입을 사용하여 코드 안정성과 개발 생산성을 향상시킵니다.'
+            description: 'App Router를 활용한 SSR/SSG/ISR 구현 및 SEO 최적화, 그리고 서버 컴포넌트 기반의 고성능 애플리케이션 개발 경험을 보유하고 있습니다.'
         },
         ]
     },
@@ -109,7 +106,7 @@ export const STACKS: StackCategory[] = [
         { 
             name: "Notion", 
             src: "/images/stacks/notion.png", 
-            description: '빠른 개발 환경 구축 및 번들링 최적화 경험이 있습니다.'
+            description: '프로젝트 문서화, 일정 관리 및 협업을 위해 Notion을 활용하여 효율성을 높입니다.' // Notion 설명 수정
         },
         ]
     },

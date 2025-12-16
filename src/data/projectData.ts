@@ -30,7 +30,7 @@ export const PROJECTS: Project[] = [
         period: "2025.10 - 2025.12",
         githubLink: "https://github.com/EunsungGIT/2025-portfolio",
         figmaLink: "",
-        resultLink: "https://naver.com/",
+        resultLink: "https://2025-ten-kohl.vercel.app/",
     },
     {
         id: "wavve",

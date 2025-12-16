@@ -1,6 +1,6 @@
 'use client'; 
 
-import React, { useState, useMemo } from 'react'; // useMemo 추가
+import React, { useState, useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -20,7 +20,6 @@ import 'swiper/css/thumbs';
 import { Project } from '@/data/projectData'; 
 import { STACKS } from '@/data/stackData';
 
-// 🌟 STACKS 구조에 맞는 타입 정의 (stackData.ts와 일치해야 합니다)
 interface StackIcon {
     name: string;
     src: string;
@@ -31,14 +30,6 @@ interface StackCategory {
     icons: StackIcon[];
 }
 
-// Swiper 썸네일 타입 정의 (타입스크립트 사용 시 필요)
-interface ThumbsSwiper {
-    el: HTMLElement;
-    init: boolean;
-    // ...
-}
-
-// Props 타입 정의: Server Component에서 받은 project 객체
 interface ProjectDetailClientProps {
     project: Project;
 }
@@ -61,31 +52,24 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
         figmaLink, 
         resultLink 
     } = project;
-
     const images = [thumbnail, mock1, mock2, mock3].filter(img => img);
 
-    // 🌟 핵심 로직: project.tech 이름으로 STACKS에서 src와 name을 가져옵니다.
     const techStacks = useMemo(() => {
-        // 1. STACKS 데이터를 이름(소문자)을 키로 하는 Map으로 변환하여 검색 속도를 높입니다.
         const allStacksMap = STACKS.reduce((acc, category: StackCategory) => {
             category.icons.forEach(icon => {
-                // Map의 키는 검색할 때 일치시키기 위해 소문자로 통일
                 acc[icon.name.toLowerCase()] = icon; 
             });
             return acc;
         }, {} as Record<string, StackIcon>);
 
-        // 2. project.tech 배열을 순회하며 매칭되는 정보를 가져옵니다.
         return tech
             .map(techName => {
                 const stackInfo = allStacksMap[techName.toLowerCase()];
                 
                 if (stackInfo) {
-                    // STACKS에서 찾은 정확한 name과 src를 반환
                     return {
                         name: stackInfo.name,
                         src: stackInfo.src,
-                        // description 등 다른 정보도 필요하면 여기에 추가
                     };
                 }
                 
@@ -93,10 +77,10 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                 console.warn(`[경고]: STACKS 데이터에서 기술 "${techName}"에 대한 정보를 찾을 수 없습니다.`);
                 return {
                     name: techName,
-                    src: '/images/stacks/default.png', // 대체 이미지 경로
+                    src: '/images/stacks/default.png',
                 };
             })
-            .filter(stack => stack); // 혹시 모를 null/undefined 필터링
+            .filter(stack => stack);
     }, [tech]);
 
 
@@ -104,7 +88,6 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
         <main>
             <section className={styles.detailSection}>
                 <div className={styles.detailContentWrap}>
-                    {/* 1. Swiper 영역 (생략, 기존과 동일) */}
                     <div className={styles.detailSwiperWrap}>
                         <Swiper
                             style={{
@@ -123,8 +106,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                                         src={imgSrc} 
                                         alt={`${title} 스크린샷 ${index + 1}`} 
                                         width={1000} 
-                                        height={600} 
-                                        layout="responsive"
+                                        height={400} 
                                         priority={index === 0}
                                     />
                                 </SwiperSlide>
@@ -146,7 +128,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                                         src={imgSrc} 
                                         alt={`썸네일 ${index + 1}`} 
                                         width={200} 
-                                        height={150} 
+                                        height={100} 
                                         objectFit="cover"
                                     />
                                 </SwiperSlide>
@@ -154,13 +136,11 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                         </Swiper>
                     </div>
 
-                    {/* 2. 사용 기술 스택 (수정된 techStacks 사용) */}
                     <div className={styles.detailStackWrap}>
                         <h3>사용한 기술</h3>
                         <div className={styles.detailStack}>
                             {techStacks.map((stack, index) => (
                                 <button key={index} type="button" className={styles.stackButton}>
-                                    {/* 🌟 STACKS에서 가져온 stack.src 사용 */}
                                     <Image src={stack.src} alt={stack.name} width={20} height={20} />
                                     <span>{stack.name}</span>
                                 </button>

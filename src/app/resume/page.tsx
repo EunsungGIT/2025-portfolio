@@ -60,8 +60,9 @@ export default function ResumePage() {
                         {experience.map((exp) => (
                             <div className={styles.career} key={exp.id}>
                                 <div className={styles.carrerTitle}>
-                                    <h3>{exp.company} ({exp.period})</h3>
+                                    <h3>{exp.company}</h3>
                                     <p>{exp.team} · {exp.position}</p>
+                                    <p>{exp.period}</p>
                                 </div>
                                 <ul className={styles.workList}>
                                     {exp.workList.map((work, index) => (
@@ -129,8 +130,11 @@ export default function ResumePage() {
                     <div className={styles.educationList}>
                         {education.map((edu) => (
                             <div className={styles.education} key={edu.id}>
-                                <h3>{edu.institution} ({edu.period})</h3>
-                                <p>{edu.major}</p>
+                                <div className={styles.educationTitle}>
+                                    <h3>{edu.institution}</h3>
+                                    <p>{edu.major}</p>
+                                    <p>{edu.period}</p>
+                                </div>
                                 <ul className={styles.contentList}>
                                     {edu.contentList.map((content, index) => (
                                         <li key={index}>{content}</li>
