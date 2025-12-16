@@ -228,11 +228,20 @@
 .customPrevButton,
 .customNextButton {
     cursor: pointer;
-    border-radius: 50%;
+    border-radius: 100%;
+    background: #171717;
+    width: 40px;
+    height: 40px;
     pointer-events: auto;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.customPrevButton:global(.swiper-button-disabled),
+.customNextButton:global(.swiper-button-disabled) {
+    opacity: 0.5;
+    cursor: default;
+    pointer-events: none;
 }
 .projectCard {
     display: flex;

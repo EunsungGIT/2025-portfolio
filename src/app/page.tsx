@@ -143,11 +143,11 @@ export default function Home() {
                         </div>
                         <div className={styles.navigationControl}>
                             <div ref={prevRef} className={styles.customPrevButton}>
-                                <Image src="/images/icons/prev.png" alt="이전" width={40} height={40}
+                                <Image src="/images/icons/prev.png" alt="이전" width={20} height={20}
                                 />
                             </div>
                             <div ref={nextRef} className={styles.customNextButton}>
-                                <Image src="/images/icons/next.png" alt="다음" width={40} height={40} />
+                                <Image src="/images/icons/next.png" alt="다음" width={20} height={20} />
                             </div>
                         </div>
                     </div>

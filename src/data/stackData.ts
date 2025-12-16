@@ -63,6 +63,11 @@ export const STACKS: StackCategory[] = [
             src: "/images/stacks/next.png", 
             description: 'App Router를 활용한 SSR/SSG/ISR 구현 및 SEO 최적화, 그리고 서버 컴포넌트 기반의 고성능 애플리케이션 개발 경험을 보유하고 있습니다.'
         },
+        { 
+            name: "API", 
+            src: "/images/stacks/api.png", 
+            description: 'Kakao, Naver 지도 API와 같은 외부 서비스 API를 활용하여 위치 기반 서비스를 구축할 수 있습니다. 또한, OpenAPI 기반의 챗봇 및 공공 데이터 API를 연동하여 데이터 수집 및 서비스 통합 기능을 구현한 경험이 있습니다.'
+        },
         ]
     },
     {
