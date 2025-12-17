@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import localFont from 'next/font/local';
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -11,16 +10,6 @@ const pretendard = localFont({
   weight: '45 920', 
   display: 'swap', 
   variable: '--font-pretendard', 
-});
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -35,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" className={`${pretendard.variable}`}>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body>
         <Header />
         <Transition>
           {children}

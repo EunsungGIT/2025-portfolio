@@ -21,17 +21,14 @@ export default function Header() {
         setIsMenuOpen(false);
     };
 
-    // Framer Motion variants
+    /* 페이지 전환 */
     const menuVariants = {
-        // 초기 상태 (mount될 때): 화면 밖 (오른쪽)
         initial: { x: '100%', transition: { duration: 0.3 } }, 
-        // 열린 상태 (animate): 화면 안 (0)
         open: { x: 0, transition: { duration: 0.3 } },
-        // 🌟 닫힐 때 상태 (unmount될 때): 화면 밖으로 (exit)
         closed: { x: '100%', transition: { duration: 0.3 } }, 
     };
     
-    // 백드롭 variants (Fade in/out)
+    // 백드롭
     const backdropVariants = {
         initial: { opacity: 0 },
         open: { opacity: 1 },
@@ -76,8 +73,8 @@ export default function Header() {
                         className={styles.mobileMenuBack}
                         initial="initial"
                         animate="open"
-                        exit="closed" // 🌟 exit 상태를 closed로 지정
-                        variants={backdropVariants} // 🌟 백드롭 애니메이션 적용
+                        exit="closed"
+                        variants={backdropVariants}
                         onClick={closeMenu}
                 >
                     <motion.nav
@@ -102,7 +99,7 @@ export default function Header() {
                                 href={link.href} 
                                 key={link.name} 
                                 className={styles.mobileNavLink}
-                                onClick={closeMenu} // 링크 클릭 시 메뉴 닫기
+                                onClick={closeMenu}
                             >
                                 {link.name}
                             </Link>
