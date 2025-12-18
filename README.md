@@ -104,6 +104,7 @@ src/
     ├── resumeData.ts           # 이력서 경력 및 정보 데이터
     ├── resumeType.ts           # 이력서 데이터 구조 (TypeScript Interface)
     └── stackData.ts            # 기술 스택 데이터
+```
 
 ---
 
