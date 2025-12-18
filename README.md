@@ -79,6 +79,7 @@ Next.js App Router와 TypeScript를 기반으로 제작된 개인 포트폴리�
 
 ## 📂 5. 프로젝트 구조 (Folder Structure)
 
+```bash
 src/
 ├── app/                        # Next.js App Router 기반 페이지 구성
 │   ├── contact/                # Contact 페이지 (문의 폼)
