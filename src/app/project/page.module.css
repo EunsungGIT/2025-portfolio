@@ -25,9 +25,12 @@
     display: flex;
     flex-flow: row wrap;
     gap: 40px;
+    width: 100%;
 }
-.project {
-    width: calc(100% / 3 - 27.5px);
+.projectCard {
+    width: calc((100% - 80px) / 3);
+}
+.projectLink {
     display: flex;
     flex-flow: column nowrap;
     gap: 20px;
@@ -78,7 +81,7 @@
     .projectTitle p {
         font-size: 30px;
     }
-    .project {
+    .projectCard {
         width: calc(50% - 20px);
     }
 }
@@ -92,7 +95,7 @@
     .projectTitle p {
         font-size: 20px;
     }
-    .project {
+    .projectCard {
         width: 100%;
     }
     .projectText {

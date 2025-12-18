@@ -1,8 +1,10 @@
 'use client'; 
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { containerVariants, itemVariants } from '@/components/layout/ScrollStagger';
 
 /* CSS */
 import styles from './page.module.css';
@@ -36,6 +38,11 @@ interface ProjectDetailClientProps {
 
 export default function ProjectDetailClient({ project }: ProjectDetailClientProps) {
     const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null);
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     const { 
         title, 
@@ -73,8 +80,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                     };
                 }
                 
-                // STACKS에 없는 경우를 대비한 대체값 또는 필터링
-                console.warn(`[경고]: STACKS 데이터에서 기술 "${techName}"에 대한 정보를 찾을 수 없습니다.`);
+                console.warn(`해당하는 스택이 없습니다.`);
                 return {
                     name: techName,
                     src: '/images/stacks/default.png',
@@ -86,8 +92,14 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
 
     return (
         <main>
-            <section className={styles.detailSection}>
-                <div className={styles.detailContentWrap}>
+            <motion.section 
+                className={styles.detailSection}
+                initial="hidden"
+                animate="show"
+                variants={containerVariants}
+            >
+                {/* 왼쪽 영역 */}
+                <motion.div className={styles.detailContentWrap} variants={itemVariants}>
                     <div className={styles.detailSwiperWrap}>
                         <Swiper
                             style={{
@@ -129,21 +141,28 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                                         alt={`썸네일 ${index + 1}`} 
                                         width={200} 
                                         height={100} 
-                                        objectFit="cover"
+                                        style={{ objectFit: 'cover' }}
                                     />
                                 </SwiperSlide>
                             ))}
                         </Swiper>
+                        <p className={styles.message}>좌우로 스크롤 해주세요➡️</p>
                     </div>
 
                     <div className={styles.detailStackWrap}>
                         <h3>사용한 기술</h3>
                         <div className={styles.detailStack}>
                             {techStacks.map((stack, index) => (
-                                <button key={index} type="button" className={styles.stackButton}>
+                                <motion.button 
+                                    key={index} 
+                                    type="button" 
+                                    className={styles.stackButton}
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                >
                                     <Image src={stack.src} alt={stack.name} width={20} height={20} />
                                     <span>{stack.name}</span>
-                                </button>
+                                </motion.button>
                             ))}
                         </div>
                     </div>
@@ -152,9 +171,18 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                         <h3>주요 기여 및 작업 내용</h3>
                         <p>{work}</p> 
                     </div>
-                </div>
-                <div className={styles.detailTitle}>
-                    <h2>{title}</h2>
+                </motion.div>
+
+                {/* 오른쪽 영역 */}
+                <motion.div className={styles.detailTitle} variants={itemVariants}>
+                    <motion.h2 
+                        initial={{ x: 20, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ delay: 0.5 }}
+                    >
+                        {title}
+                    </motion.h2>
+
                     <div className={styles.detailExplain}>
                         <h3>프로젝트 설명</h3>
                         <p>{description}</p> 
@@ -171,20 +199,24 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                         <h3>자료 링크</h3>
                         <div className={styles.detailLink}>
                             {githubLink && (
-                                <Link href={githubLink} target="_blank" rel="noopener noreferrer" aria-label="GitHub Link">
+                                <Link href={githubLink} target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
                                     <Image src='/images/stacks/github.png' alt="GitHub" width={20} height={20} />
                                 </Link>
                             )}
                             {figmaLink && (
-                                <Link href={figmaLink} target="_blank" rel="noopener noreferrer" aria-label="Figma Link">
+                                <Link href={figmaLink} target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
                                     <Image src='/images/stacks/figma.png' alt="Figma" width={20} height={20} />
                                 </Link>
                             )}
                         </div>
                     </div>
-                    <Link href={resultLink} target="_blank" rel="noopener noreferrer" className={styles.resultButton}>사이트 이동</Link>
-                </div>
-            </section>
+                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}  className={styles.resultButton}>
+                        <Link href={resultLink} target="_blank" rel="noopener noreferrer">
+                            사이트 이동
+                        </Link>
+                    </motion.div>
+                </motion.div>
+            </motion.section>
         </main>
     );
 }

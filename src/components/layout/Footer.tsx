@@ -16,7 +16,7 @@ export default function Footer() {
                     />
                     EUN
                 </h1>
-                <p>이미지 저작권은 유료 프리픽을 라이센스를 사용중이며, 게시물은 상업적 목적이 아닌 포트폴리오 목적으로만 사용됩니다.<br />아직 공개되지 않은 작업물은 포함하지 않으며, 오직 공개된 작업물만을 게시합니다.</p>
+                <p>사용자 경험을 생각하며 탄탄한 기본기를 바탕으로 성장하는 개발자입니다. <br />본 사이트는 개인 포트폴리오 목적으로 제작되었으며, 상업적 용도로 사용하지 않습니다.</p>
                 <p className="copyRight">Copyright ⓒ EUN</p>
                 <div className={styles.footerButton}>
                     <Link href="https://github.com/EunsungGIT" target="_blank" rel="noopener noreferrer" aria-label="GitHub Link">

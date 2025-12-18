@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useRef } from "react";
 import styles from "./page.module.css";
+import { motion } from 'framer-motion';
+import { containerVariants, itemVariants } from '@/components/layout/ScrollStagger';
 
 /* DATA */
 import { STACKS, StackCategory } from '@/data/stackData';
@@ -41,7 +43,20 @@ export default function Home() {
                     playsInline
                     className={styles.background}
                 />
-                <div className={styles.introContainer}>
+                <motion.div 
+                    className={styles.introContainer}
+                    initial={{ 
+                        opacity: 0, 
+                        x: "-50%",
+                        y: "-40%"
+                    }}
+                    animate={{ 
+                        opacity: 1, 
+                        x: "-50%",
+                        y: "-50%"
+                    }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                >
                     <h2>Front-end Developer</h2>
                     <p>프론트엔드 개발과 퍼블리싱을 주로 다루며, 새로운 기술에 발빠르게 적응하고<br />단기간에 완성도 높은 결과물을 도출하는 <em>"스프린터 개발자"</em> 입니다.</p>
                     <div className={styles.introLink}>
@@ -54,53 +69,80 @@ export default function Home() {
                             Notion
                         </Link>
                     </div>
-                </div>
+                </motion.div>
             </section>
 
             {/* COMPETENCY */}
             <section className={styles.competencySection}>
-                <div className={styles.competencyTitle}>
+                <motion.div 
+                    className={styles.competencyTitle}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false, amount: 0.3 }}
+                    transition={{ duration: 0.6 }}
+                >
                     <h2>핵심 역량</h2>
-                    <p>프로젝트의 품질과 사용자 경험(UX)을 향상시키기 위한 저의 주요 강점입니다.</p> 
-                </div>
-                <div className={styles.competencyContainer}>
-                    <div className={styles.competencyCard}>
+                    <p>프로젝트의 품질과 사용자 경험(UX)을 향상시키기 위한 주요 강점</p> 
+                </motion.div>
+
+                <motion.div 
+                    className={styles.competencyContainer}
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: false, amount: 0.2 }}
+                >
+                    <motion.div className={styles.competencyCard} variants={itemVariants}>
                         <div className={styles.competencyIcon}>
-                            <Image src="/images/icons/competency1.png" alt="타입스크립트 아이콘" width={30} height={30} />
+                            <Image src="/images/icons/competency1.png" alt="아이콘" width={30} height={30} />
                         </div>
-                        <h3>견고한 TypeScript 기반 개발</h3>
+                        <h3>탄탄한 퍼블리싱 기반의 구조적 설계</h3>
                         <p>
-                            **TypeScript 기반의 명확한 타입 정의**와 엄격한 규칙 적용을 통해 런타임에 발생 가능한 잠재적 에러를 **컴파일 단계에서 사전에 방지**합니다. 복잡도가 높은 대규모 애플리케이션 환경에서도 **유지보수 비용을 최소화하고 개발 생산성**을 높여 안정적인 서비스를 제공합니다.
+                            HTML5/CSS3/JS의 퍼블리싱 기본기를 바탕으로 디자인을 완벽하게 재현하며, PHP의 `include` 구조에서 얻은 통찰을 React의 컴포넌트 아키텍처로 확장했습니다. 단순한 UI 구현을 넘어 코드의 재사용성과 유지보수성을 극대화하는 구조적인 모듈화 설계에 강점이 있습니다.
                         </p>
-                    </div>
-                    <div className={styles.competencyCard}>
+                    </motion.div>
+
+                    <motion.div className={styles.competencyCard} variants={itemVariants}>
                         <div className={styles.competencyIcon}>
-                            <Image src="/images/icons/competency2.png" alt="성능 아이콘" width={30} height={30} />
+                            <Image src="/images/icons/competency2.png" alt="아이콘" width={30} height={30} />
                         </div>
-                        <h3>Next.js 기반 고성능 웹 구현</h3>
+                        <h3>데이터 흐름을 이해하는 동적 웹 구현</h3>
                         <p>
-                            **SSR, SSG, ISR** 등 Next.js의 렌더링 전략을 프로젝트 요구사항에 맞춰 적극적으로 활용합니다. 이를 통해 **초기 로딩 속도(LCP)**와 **검색 엔진 최적화(SEO)** 성능을 극대화하고, 웹 바이탈(Core Web Vitals) 지표를 개선하여 최적의 사용자 경험(UX)을 달성합니다.
+                            공공데이터 및 지도 API 등 다양한 API를 fetch로 직접 다룬 경험을 통해 데이터의 요청과 수신, 특히 비동기 파라미터(params) 처리를 명확히 이해하고 있습니다. 이러한 데이터 흐름에 대한 이해를 Next.js의 파일 기반 라우팅에 접목하여 최적화된 사용자 경험(UX)을 구축합니다.
                         </p>
-                    </div>
-                    <div className={styles.competencyCard}>
+                    </motion.div>
+
+                    <motion.div className={styles.competencyCard} variants={itemVariants}>
                         <div className={styles.competencyIcon}>
-                            <Image src="/images/icons/competency3.png" alt="컴포넌트 아이콘" width={30} height={30} />
+                            <Image src="/images/icons/competency3.png" alt="아이콘" width={30} height={30} />
                         </div>
-                        <h3>재사용성 높은 컴포넌트 설계</h3>
+                        <h3>백엔드 협업 지향적 기술 스택</h3>
                         <p>
-                            **Atomic Design** 방법론을 참고하여 UI 요소를 기능별, 목적별로 **컴포넌트 단위로 모듈화**합니다. 이로써 코드 중복을 방지하고 일관된 디자인 시스템을 유지하며, 새로운 기능을 개발할 때 **확장성과 예측 가능성**을 높여 개발 속도를 가속화합니다.
+                            Adminer 환경에서 SQL(SELECT, INSERT 등)을 직접 다루며 데이터베이스를 관리해본 경험은 백엔드 개발자와의 원활한 소통을 가능하게 합니다. 여기에 TypeScript의 타입 안정성을 더해 런타임 에러를 방지하고, 전체 서비스의 견고함을 높이는 개발 문화를 지향합니다.
                         </p>
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
             </section>
 
             {/* STACK */}
             <section className={styles.stackSection}>
-                <div className={styles.stackTitle}>
+                <motion.div 
+                    className={styles.stackTitle}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false }}
+                >
                     <h2>스킬</h2>
                     <p>주요 기술과 스택 상세</p>
-                </div>
-                <div className={styles.stackContainer}>
+                </motion.div>
+                
+                <motion.div 
+                    className={styles.stackContainer}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: false }}
+                    transition={{ duration: 0.7 }}
+                >
                     <div className={styles.stackMenu}>
                         {CATEGORIES.map(category => (
                             <button
@@ -112,7 +154,14 @@ export default function Home() {
                             </button>
                         ))}
                     </div>
-                    <div className={styles.stackList}>
+                    <motion.div 
+                        key={selectedCategory}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -20 }}
+                        transition={{ duration: 0.4 }}
+                        className={styles.stackList}
+                    >
                         {filteredStacks.map(stack => (
                             <div key={stack.name} className={styles.stackItem}>
                                 <div className={styles.stackIcon}>
@@ -129,12 +178,18 @@ export default function Home() {
                                 </div>
                             </div>
                         ))}
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
             </section>
 
             {/* PROJECT */}
-            <section className={styles.projectSection}>
+            <motion.section 
+                className={styles.projectSection}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: false, amount: 0.1 }}
+                transition={{ duration: 0.8 }}
+            >
                 <div className={styles.projectContainer}>
                     <div className={styles.projectTop}>
                         <div className={styles.projectTitle}>
@@ -143,14 +198,14 @@ export default function Home() {
                         </div>
                         <div className={styles.navigationControl}>
                             <div ref={prevRef} className={styles.customPrevButton}>
-                                <Image src="/images/icons/prev.png" alt="이전" width={20} height={20}
-                                />
+                                <Image src="/images/icons/prev.png" alt="이전" width={20} height={20} />
                             </div>
                             <div ref={nextRef} className={styles.customNextButton}>
                                 <Image src="/images/icons/next.png" alt="다음" width={20} height={20} />
                             </div>
                         </div>
                     </div>
+                    
                     <Swiper
                         navigation={{
                             prevEl: prevRef.current,
@@ -197,15 +252,21 @@ export default function Home() {
                         <Link href="/project">전체 프로젝트 보기</Link>
                     </div>
                 </div>
-            </section>
+            </motion.section>
 
             {/* CONTACT */}
             <section className={styles.contactSection}>
-                <div className={styles.contactContainer}>
+                <motion.div 
+                    className={styles.contactContainer}
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false, amount: 0.5 }}
+                    transition={{ duration: 0.8 }}
+                >
                     <h2>함께 성장하며 최고의 결과를 만들어<br />낼 준비된 프론트엔드 개발자입니다.</h2>
                     <p>빠르게 변화하는 기술 트렌드를 학습하고 적용하는 능력을 바탕으로,<br />팀의 목표 달성에 가장 능동적으로 기여하는 동료가 되겠습니다.</p>
                     <Link href="/contact">CONTACT</Link>
-                </div>
+                </motion.div>
             </section>
         </main>
     );

@@ -14,7 +14,6 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
     text-align: center;
     display: flex;
     flex-flow: column nowrap;
@@ -340,6 +339,9 @@
     .introContainer p {
         font-size: 16px;
     }
+    .introContainer p em {
+        font-size: 16px;
+    }
     .introLink a {
         padding: 10px 20px;
     }
@@ -369,6 +371,7 @@
     }
     .competencyTitle p {
         font-size: 20px;
+        line-height: 1.4;
     }
     .competencyCard {
         gap: 10px;

@@ -1,12 +1,15 @@
+'use client'
+
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './page.module.css';
+import { motion } from 'framer-motion';
+import { containerVariants, itemVariants } from '@/components/layout/ScrollStagger';
 
 /* DATA */
 import { RESUME_DATA } from '@/data/resumeData';
 import { ResumeData } from '@/data/resumeType';
 import { STACKS } from '@/data/stackData'; 
-
 
 export default function ResumePage() {
     const resumeData: ResumeData = RESUME_DATA;
@@ -15,16 +18,22 @@ export default function ResumePage() {
     return (
         <main>
             <section className={styles.resumeSection}>
+                
                 {/* 1. INTRO & CONTACT */}
-                <section className={styles.introSection}>
-                    <div className={styles.introTitle}>
+                <motion.section 
+                    className={styles.introSection}
+                    initial="hidden"
+                    animate="show"
+                    variants={containerVariants}
+                >
+                    <motion.div className={styles.introTitle} variants={itemVariants}>
                         <h2>안녕하세요,<br />프론트엔드 개발자 {name} 입니다.</h2>
                         <p>{summary}</p>
-                    </div>
-                    <div className={styles.introCall}>
+                    </motion.div>
+                    
+                    <motion.div className={styles.introCall} variants={itemVariants}>
                         <h2>LINK & CONTACT</h2>
                         <div className={styles.introCallList}>
-                            {/* LINK */}
                             <div className={styles.introLink}>
                                 <h3>LINK</h3>
                                 <div className={styles.linkButton}>
@@ -37,7 +46,6 @@ export default function ResumePage() {
                                 </div>
                             </div>
 
-                            {/* CONTACT */}
                             <div className={styles.introContact}>
                                 <h3>CONTACT</h3>
                                 <div className={styles.contactItem}>
@@ -50,15 +58,21 @@ export default function ResumePage() {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </motion.div>
+                </motion.section>
 
                 {/* 2. CAREER */}
-                <section className={styles.careerSection}>
-                    <h2>CAREER</h2>
+                <motion.section 
+                    className={styles.careerSection}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.05 }}
+                    variants={containerVariants}
+                >
+                    <motion.h2 variants={itemVariants}>CAREER</motion.h2>
                     <div className={styles.careerList}>
                         {experience.map((exp) => (
-                            <div className={styles.career} key={exp.id}>
+                            <motion.div className={styles.career} key={exp.id} variants={itemVariants}>
                                 <div className={styles.carrerTitle}>
                                     <h3>{exp.company}</h3>
                                     <p>{exp.team} · {exp.position}</p>
@@ -90,17 +104,23 @@ export default function ResumePage() {
                                         </div>
                                     ))}
                                 </div>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
-                </section>
+                </motion.section>
 
                 {/* 3. STACK */}
-                <section className={styles.stackSection}>
-                    <h2>STACKS</h2>
+                <motion.section 
+                    className={styles.stackSection}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: false, amount: 0.2 }}
+                    variants={containerVariants}
+                >
+                    <motion.h2 variants={itemVariants}>STACKS</motion.h2>
                     <div className={styles.stackList}>
                         {STACKS.map((category) => (
-                            <div className={styles.stackCategory} key={category.menu}> 
+                            <motion.div className={styles.stackCategory} key={category.menu} variants={itemVariants}> 
                                 <h3>{category.menu}</h3> 
                                 <div className={styles.stackItemList}>
                                     {category.icons.map((stack) => (
@@ -119,17 +139,23 @@ export default function ResumePage() {
                                         </div>
                                     ))}
                                 </div>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
-                </section>
+                </motion.section>
 
                 {/* 4. EDUCATION */}
-                <section className={styles.educationSection}>
-                    <h2>EDUCATION</h2>
+                <motion.section 
+                    className={styles.educationSection}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: false, amount: 0.5 }}
+                    variants={containerVariants}
+                >
+                    <motion.h2 variants={itemVariants}>EDUCATION</motion.h2>
                     <div className={styles.educationList}>
                         {education.map((edu) => (
-                            <div className={styles.education} key={edu.id}>
+                            <motion.div className={styles.education} key={edu.id} variants={itemVariants}>
                                 <div className={styles.educationTitle}>
                                     <h3>{edu.institution}</h3>
                                     <p>{edu.major}</p>
@@ -140,10 +166,11 @@ export default function ResumePage() {
                                         <li key={index}>{content}</li>
                                     ))}
                                 </ul>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
-                </section>
+                </motion.section>
+
             </section>
         </main>
     );

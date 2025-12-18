@@ -36,6 +36,12 @@
     border: none;
     background: #171717;
     color: #aaa;
+    border: 1px solid transparent;
+    outline: none;
+    transition: 0.5s;
+}
+.formGroup input:focus {
+  border: 1px solid #0064FF;
 }
 .formGroup textarea {
     width: 100%;
@@ -45,6 +51,12 @@
     border: none;
     background: #171717;
     color: #aaa;
+      border: 1px solid transparent;
+    outline: none;
+    transition: 0.5s;
+}
+.formGroup textarea:focus {
+  border: 1px solid #0064FF;
 }
 .submitButton {
     background: #0064FF;

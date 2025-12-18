@@ -1,12 +1,10 @@
-// src/components/layout/TransitionProvider.tsx (최종 수정)
-
 'use client';
 
 import { AnimatePresence, motion, Variants } from 'framer-motion';
 import { usePathname } from 'next/navigation';
-import React, { useEffect } from 'react'; // useEffect 추가
+import React, { useEffect } from 'react';
 
-// 페이지 애니메이션 설정 (Fade In/Out 효과)
+/* 애니메이션 설정 */
 const pageTransitionVariants: Variants = { 
     initial: {
         opacity: 0,
@@ -33,7 +31,6 @@ export default function TransitionProvider({ children }: TransitionProviderProps
     }, [pathname]);
 
     return (
-        // mode="wait"을 사용하면, exit이 완료될 때까지 다음 페이지의 initial/animate를 대기시킵니다.
         <AnimatePresence mode="wait"> 
             <motion.div
                 key={pathname} 
