@@ -231,7 +231,7 @@ export default function Home() {
                                     href={`/project/${project.id}`} 
                                     className={styles.projectCard}
                                 >
-                                    <div className={styles.projectImage}>
+                                    <div className={styles.projectImage} style={{ background: project.color }}>
                                         <Image 
                                             src={project.thumbnail} 
                                             alt={project.title} 

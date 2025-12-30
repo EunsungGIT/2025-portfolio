@@ -41,7 +41,7 @@ export default function Project() {
                                 href={`/project/${project.id}`} 
                                 className={styles.projectLink}
                             >
-                                <div className={styles.projectImage}>
+                                <div className={styles.projectImage} style={{ background: project.color }}>
                                     <Image 
                                         src={project.thumbnail}
                                         alt={`${project.title} 썸네일`} 

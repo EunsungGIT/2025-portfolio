@@ -46,10 +46,10 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
 
     const { 
         title, 
-        thumbnail, 
         mock1, 
         mock2, 
         mock3, 
+        mock4, 
         tech,
         description, 
         work, 
@@ -59,7 +59,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
         figmaLink, 
         resultLink 
     } = project;
-    const images = [thumbnail, mock1, mock2, mock3].filter(img => img);
+    const images = [mock1, mock2, mock3, mock4].filter(img => img);
 
     const techStacks = useMemo(() => {
         const allStacksMap = STACKS.reduce((acc, category: StackCategory) => {
