@@ -23,6 +23,7 @@ Next.js App Router와 TypeScript를 기반으로 제작된 개인 포트폴리�
     * **App Router** 기반의 비동기 데이터 처리 및 SEO 최적화
     * **Framer Motion**을 이용한 스태거(Stagger) 애니메이션 및 스크롤 인터랙션
     * **Web3Forms API**를 연동하여 서버리스 환경에서의 실시간 문의 기능 구현
+    * **Data-Driven Architecture**: 모든 콘텐츠를 데이터화하여 유지보수성 극대화
 
 ---
 
@@ -33,6 +34,7 @@ Next.js App Router와 TypeScript를 기반으로 제작된 개인 포트폴리�
 * **Language**: `TypeScript`
 * **State**: `React Hooks` (useState, useMemo, useEffect)
 * **Animation**: `Framer Motion`
+* **Styling**: `CSS Modules`
 
 ### **Infrastructure / Library**
 * **Deployment**: `Vercel`
@@ -44,24 +46,16 @@ Next.js App Router와 TypeScript를 기반으로 제작된 개인 포트폴리�
 ## 💡 3. 기술적 도전 및 해결 과정 (Technical Challenges)
 
 ### 3-1. Next.js의 비동기 `params` 대응
-**[문제 인식]** Next.js 업데이트로 인해 `params`가 더 이상 동적 객체가 아닌 **Promise**로 제공되면서, 상세 페이지에서 ID를 즉시 참조할 때 타입 에러가 발생했습니다.
-
-**[해결 과정]**
-* `Promise` 타입을 명시적으로 정의하고 컴포넌트를 비동기(`async`)로 선언했습니다.
-* `await params`를 통해 안전하게 파라미터를 해제한 뒤 데이터를 페칭하는 구조로 개선하여 런타임 안정성을 확보했습니다.
+* **문제 인식**: Next.js 업데이트로 인해 `params`가 Promise로 제공되면서 상세 페이지에서 ID 참조 시 타입 에러 발생.
+* **해결 과정**: `Promise` 타입을 명시하고 컴포넌트를 `async`로 선언, `await params`를 통해 안전하게 파라미터를 해제하는 구조로 개선하여 런타임 안정성 확보.
 
 ### 3-2. Swiper.js와 CSS Modules의 클래스 충돌 해결
-**[문제 인식]** CSS Modules는 클래스명을 해싱 처리하기 때문에, Swiper 라이브러리가 내부에 동적으로 주입하는 클래스(예: `.swiper-button-disabled`)를 스타일링하지 못하는 문제가 있었습니다.
-
-**[해결 과정]**
-* CSS Modules의 **`:global` 선택자**를 활용하여 해싱 범위 내에서 라이브러리 전역 클래스에 접근했습니다.
-* 이로써 디자인 일관성을 유지하면서 라이브러리의 기능을 커스텀 스타일링할 수 있었습니다.
+* **문제 인식**: CSS Modules의 해싱 처리로 인해 Swiper 내부 동적 클래스(`.swiper-button-disabled` 등) 스타일링 불가.
+* **해결 과정**: `:global` 선택자를 활용하여 라이브러리 전역 클래스에 접근, 디자인 일관성을 유지하며 커스텀 스타일 적용.
 
 ### 3-3. Client Component 마운트 시점 제어
-**[문제 인식]** Swiper의 Thumbs 기능을 사용할 때, 서버 사이드 렌더링 시점에서 DOM 요소에 접근하여 `Cannot read properties of undefined (reading 'classList')` 에러가 발생했습니다.
-
-**[해결 과정]**
-* `useEffect`를 통해 컴포넌트의 **마운트 상태(mounted)**를 관리하여, 브라우저 환경이 준비된 시점에만 Swiper가 렌더링되도록 방어 코드를 작성했습니다.
+* **문제 인식**: 서버 사이드 렌더링 시점에서 DOM 요소 접근으로 인한 `Cannot read properties of undefined` 에러 발생.
+* **해결 과정**: `useEffect`로 컴포넌트 마운트 상태를 관리하여 브라우저 환경이 준비된 시점에만 라이브러리가 렌더링되도록 방어 코드 작성.
 
 ---
 
@@ -98,6 +92,8 @@ src/
 │       ├── Footer.tsx          # 공통 하단 푸터
 │       ├── Header.tsx          # 공통 상단 헤더
 │       ├── ScrollStagger.tsx   # 스크롤 애니메이션 라이브러리 (framer-motion)
+│       ├── ScrollToTop.tsx     # 최상단 스크롤 컴포넌트 (framer-motion)
+│       ├── ProgressBar.tsx     # 현재 진행도 바 컴포넌트 (framer-motion)
 │       └── Transition.tsx      # 페이지 전환 애니메이션
 └── data/                       # 서비스 데이터 및 타입 정의
     ├── projectData.ts          # 프로젝트 상세 콘텐츠 데이터
