@@ -1,14 +1,15 @@
+/* 프로젝트 타입 */
 export interface Project {
     id: string;
     title: string;
     tech: string[];
     headCount: "개인 프로젝트" | "팀 프로젝트";
-    color: string; 
-    thumbnail: string; 
-    mock1: string; 
-    mock2: string; 
-    mock3: string; 
-    mock4: string; 
+    color: string;
+    thumbnail: string;
+    mock1: string;
+    mock2: string;
+    mock3: string;
+    mock4: string;
     description: string;
     work: string;
     period: string;
@@ -17,6 +18,7 @@ export interface Project {
     resultLink: string;
 }
 
+/* 프로젝트 데이터 */
 export const PROJECTS: Project[] = [
     {
         id: "tourch",

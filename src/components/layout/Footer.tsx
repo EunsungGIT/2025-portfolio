@@ -1,17 +1,20 @@
+/* NEXT */
 import Link from 'next/link';
 import Image from 'next/image';
+
+/* CSS */
 import styles from './Footer.module.css';
 
 export default function Footer() {
     return (
-        <header className={styles.footer}> 
-            <div className={styles.container}> 
+        <header className={styles.footer}>
+            <div className={styles.container}>
                 <h1 className={styles.logo}>
-                    <Image 
+                    <Image
                         src="/images/icons/logo.png"
                         alt="로고"
                         width={20}
-                        height={20} 
+                        height={20}
                         priority
                     />
                     EUN

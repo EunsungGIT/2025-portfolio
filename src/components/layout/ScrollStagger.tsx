@@ -1,3 +1,4 @@
+/* FRAMER */
 import { Variants } from 'framer-motion';
 
 /* 부모 */

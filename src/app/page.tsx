@@ -1,10 +1,19 @@
 'use client'
 
+/* NEXT */
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useRef } from "react";
+
+/* REACT */
+import { useState, useRef, useEffect } from "react";
+
+/* CSS */
 import styles from "./page.module.css";
+
+/* FRAMER */
 import { motion } from 'framer-motion';
+
+/* 컴포넌트 */
 import { containerVariants, itemVariants } from '@/components/layout/ScrollStagger';
 
 /* DATA */
@@ -24,7 +33,14 @@ export default function Home() {
     const selectedStackGroup = STACKS.find(stack => stack.menu === selectedCategory);
     const filteredStacks = selectedStackGroup ? selectedStackGroup.icons : [];
 
-    /* 최신 프로젝트 */
+    const [isLoaded, setIsLoaded] = useState(false);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        setIsLoaded(true);
+    }, []);
+
+    /* 최신 프로젝트 3개 */
     const featuredProjects = PROJECTS.slice(0, 3);
 
     /* SWIPER 이전과 다음 */
@@ -35,7 +51,7 @@ export default function Home() {
         <main>
             {/* INTRO */}
             <section className={styles.introSection}>
-                <video 
+                <video
                     src="/videos/background.mp4"
                     autoPlay
                     loop
@@ -43,21 +59,21 @@ export default function Home() {
                     playsInline
                     className={styles.background}
                 />
-                <motion.div 
+                <motion.div
                     className={styles.introContainer}
-                    initial={{ 
-                        opacity: 0, 
+                    initial={{
+                        opacity: 0,
                         x: "-50%",
                         y: "-40%"
                     }}
-                    animate={{ 
-                        opacity: 1, 
+                    animate={{
+                        opacity: 1,
                         x: "-50%",
                         y: "-50%"
                     }}
                     transition={{ duration: 1, ease: "easeOut" }}
                 >
-                    <h2>Front-end Developer</h2>
+                    <h1>Front-end Developer</h1>
                     <p>프론트엔드 개발과 퍼블리싱을 주로 다루며, 새로운 기술에 발빠르게 적응하고<br />단기간에 완성도 높은 결과물을 도출하는 <em>"스프린터 개발자"</em> 입니다.</p>
                     <div className={styles.introLink}>
                         <Link href="https://github.com/EunsungGIT" target="_blank" rel="noopener noreferrer" aria-label="GitHub Link">
@@ -74,23 +90,23 @@ export default function Home() {
 
             {/* COMPETENCY */}
             <section className={styles.competencySection}>
-                <motion.div 
+                <motion.div
                     className={styles.competencyTitle}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false, amount: 0.3 }}
+                    viewport={{ once: true, amount: 0.05 }}
                     transition={{ duration: 0.6 }}
                 >
                     <h2>핵심 역량</h2>
-                    <p>프로젝트의 품질과 사용자 경험(UX)을 향상시키기 위한 주요 강점</p> 
+                    <p>프로젝트의 품질과 사용자 경험(UX)을 향상시키기 위한 주요 강점</p>
                 </motion.div>
 
-                <motion.div 
+                <motion.div
                     className={styles.competencyContainer}
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false, amount: 0.2 }}
+                    viewport={{ once: true, amount: 0.1, margin: "-50px" }}
                 >
                     <motion.div className={styles.competencyCard} variants={itemVariants}>
                         <div className={styles.competencyIcon}>
@@ -126,21 +142,21 @@ export default function Home() {
 
             {/* STACK */}
             <section className={styles.stackSection}>
-                <motion.div 
+                <motion.div
                     className={styles.stackTitle}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     <h2>스킬</h2>
                     <p>주요 기술과 스택 상세</p>
                 </motion.div>
-                
-                <motion.div 
+
+                <motion.div
                     className={styles.stackContainer}
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                     transition={{ duration: 0.7 }}
                 >
                     <div className={styles.stackMenu}>
@@ -154,7 +170,7 @@ export default function Home() {
                             </button>
                         ))}
                     </div>
-                    <motion.div 
+                    <motion.div
                         key={selectedCategory}
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -164,17 +180,54 @@ export default function Home() {
                     >
                         {filteredStacks.map(stack => (
                             <div key={stack.name} className={styles.stackItem}>
-                                <div className={styles.stackIcon}>
-                                    <Image 
-                                        src={stack.src}
-                                        alt={`${stack.name} 아이콘`} 
-                                        width={50} 
-                                        height={50} 
-                                    />
+                                <div className={styles.stackMainInfo}>
+                                    <div className={styles.stackIcon}>
+                                        <Image
+                                            src={stack.src}
+                                            alt={`${stack.name} 아이콘`}
+                                            width={40}
+                                            height={40}
+                                        />
+                                    </div>
+                                    <div className={styles.stackContent}>
+                                        <div className={styles.stackNameTitle}>
+                                            <h3>{stack.name}</h3>
+                                            <span className={styles.statusBadge}>{stack.status}</span>
+                                        </div>
+                                        <p>{stack.description}</p>
+                                    </div>
                                 </div>
-                                <div className={styles.stackContent}>
-                                    <h3>{stack.name}</h3>
-                                    <p>{stack.description}</p>
+
+                                {/* 하단 섹션: 러닝 트랙 (게이지) */}
+                                <div className={styles.trackArea}>
+                                    <div className={styles.trackLine}>
+                                        {/* 트랙 배경에 새겨진 마일스톤 (선택 사항) */}
+                                        <div className={styles.milestones}>
+                                            <span></span><span></span><span></span>
+                                        </div>
+
+                                        {/* 실제 차오르는 게이지 */}
+                                        <motion.div
+                                            className={styles.gauge}
+                                            initial={{ width: 0 }}
+                                            whileInView={{ width: `${stack.level}%` }}
+                                            transition={{ duration: 1, ease: "circOut" }}
+                                        />
+
+                                        {/* 달리는 러너 아이콘 */}
+                                        <motion.div
+                                            className={styles.runner}
+                                            initial={{ left: 0 }}
+                                            whileInView={{ left: `${stack.level}%` }}
+                                            transition={{ duration: 1, ease: "circOut" }}
+                                        >
+                                            🏃
+                                        </motion.div>
+                                    </div>
+                                    <div className={styles.trackInfo}>
+                                        <span className={styles.paceLabel}>PACE</span>
+                                        <span className={styles.levelValue}>{stack.level}%</span>
+                                    </div>
                                 </div>
                             </div>
                         ))}
@@ -183,11 +236,11 @@ export default function Home() {
             </section>
 
             {/* PROJECT */}
-            <motion.section 
+            <motion.section
                 className={styles.projectSection}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                viewport={{ once: false, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.8 }}
             >
                 <div className={styles.projectContainer}>
@@ -205,49 +258,44 @@ export default function Home() {
                             </div>
                         </div>
                     </div>
-                    
-                    <Swiper
-                        navigation={{
-                            prevEl: prevRef.current,
-                            nextEl: nextRef.current,
-                        }}
-                        onBeforeInit={(swiper) => {
-                            if (swiper.params.navigation && typeof swiper.params.navigation !== 'boolean') {
-                                swiper.params.navigation.prevEl = prevRef.current;
-                                swiper.params.navigation.nextEl = nextRef.current;
-                            }
-                        }}
-                        style={{
-                            '--swiper-navigation-color': 'var(--primary-color, #aaa)',
-                            '--swiper-pagination-color': 'var(--primary-color, #aaa)',
-                        } as React.CSSProperties}
-                        modules={[Navigation]}
-                        className={styles.projectSwiper}
-                        slidesPerView={1}
-                    >
-                        {featuredProjects.map((project) => (
-                            <SwiperSlide key={project.id}> 
-                                <Link 
-                                    href={`/project/${project.id}`} 
-                                    className={styles.projectCard}
-                                >
-                                    <div className={styles.projectImage} style={{ background: project.color }}>
-                                        <Image 
-                                            src={project.thumbnail} 
-                                            alt={project.title} 
-                                            width={600}
-                                            height={300}
-                                        />
-                                    </div>
-                                    <div className={styles.projectContent}>
-                                        <h3>{project.title}</h3>
-                                        <p>{project.description}</p>
-                                        <p>{project.headCount}</p>
-                                    </div>
-                                </Link>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
+                    {isLoaded && (
+                        <Swiper
+                            navigation={{
+                                prevEl: prevRef.current,
+                                nextEl: nextRef.current,
+                            }}
+                            style={{
+                                '--swiper-navigation-color': 'var(--primary-color, #aaa)',
+                                '--swiper-pagination-color': 'var(--primary-color, #aaa)',
+                            } as React.CSSProperties}
+                            modules={[Navigation]}
+                            className={styles.projectSwiper}
+                            slidesPerView={1}
+                        >
+                            {featuredProjects.map((project) => (
+                                <SwiperSlide key={project.id}>
+                                    <Link
+                                        href={`/project/${project.id}`}
+                                        className={styles.projectCard}
+                                    >
+                                        <div className={styles.projectImage} style={{ background: project.color }}>
+                                            <Image
+                                                src={project.thumbnail}
+                                                alt={project.title}
+                                                width={600}
+                                                height={300}
+                                            />
+                                        </div>
+                                        <div className={styles.projectContent}>
+                                            <h3>{project.title}</h3>
+                                            <p>{project.description}</p>
+                                            <p>{project.headCount}</p>
+                                        </div>
+                                    </Link>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    )}
                     <div className={styles.projectButton}>
                         <Link href="/project">전체 프로젝트 보기</Link>
                     </div>
@@ -256,11 +304,11 @@ export default function Home() {
 
             {/* CONTACT */}
             <section className={styles.contactSection}>
-                <motion.div 
+                <motion.div
                     className={styles.contactContainer}
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false, amount: 0.5 }}
+                    viewport={{ once: true, amount: 0.5 }}
                     transition={{ duration: 0.8 }}
                 >
                     <h2>함께 성장하며 최고의 결과를 만들어<br />낼 준비된 프론트엔드 개발자입니다.</h2>

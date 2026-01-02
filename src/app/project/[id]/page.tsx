@@ -1,28 +1,21 @@
-import { use } from 'react';
+/* NEXT */
 import { notFound } from 'next/navigation';
-import { PROJECTS, Project } from '@/data/projectData';
+
+/* DATA */
+import { PROJECTS } from '@/data/projectData';
+
+/* 클라이언트 컴포넌트 */
 import ProjectDetailClient from './ProjectDetailClient';
 
-interface ProjectPageProps {
-    params: {
-        id: string;
-    };
-}
+export default async function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
+    /* 비동기로 받아온 파라미터를 await로 해제 */
+    const { id } = await params;
 
-export default function ProjectPage({ params }: ProjectPageProps) {
-    
-    // 1. params 언래핑 (환경 문제 해결)
-    const unwrappedParams = use(Promise.resolve(params)); 
-    const currentId = unwrappedParams.id;
-    
-    // 2. 데이터 조회
-    const project = PROJECTS.find((p: Project) => p.id === currentId);
+    /* PROJECT에서 해당 데이터 조회 */
+    const project = PROJECTS.find((p) => p.id === id);
 
-    // 3. 데이터가 없으면 404 처리
-    if (!project) {
-        return notFound(); 
-    }
-    
-    // 4. Client Component에 데이터를 Props로 전달
+    /* 데이터가 없을 시 */
+    if (!project) return notFound();
+
     return <ProjectDetailClient project={project} />;
 }

@@ -1,15 +1,23 @@
+/* NEXT */
 import type { Metadata } from "next";
 import localFont from 'next/font/local';
+
+/* 컴포넌트 */
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Transition from '@/components/layout/Transition';
+import ScrollToTop from "@/components/layout/ScrollToTop";
+import ProgressBar from "@/components/layout/ProgressBar";
+
+/* CSS */
 import "./globals.css";
 
+/* 프리텐다드 폰트 */
 const pretendard = localFont({
-  src: '../../public/fonts/PretendardVariable.woff2', 
-  weight: '45 920', 
-  display: 'swap', 
-  variable: '--font-pretendard', 
+  src: '../../public/fonts/PretendardVariable.woff2',
+  weight: '45 920',
+  display: 'swap',
+  variable: '--font-pretendard',
 });
 
 export const metadata: Metadata = {
@@ -25,11 +33,13 @@ export default function RootLayout({
   return (
     <html lang="ko" className={`${pretendard.variable}`}>
       <body>
+        <ProgressBar />
         <Header />
         <Transition>
           {children}
         </Transition>
         <Footer />
+        <ScrollToTop />
       </body>
     </html>
   );

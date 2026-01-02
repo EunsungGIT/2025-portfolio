@@ -1,7 +1,12 @@
 'use client';
 
+/* FRAMER */
 import { AnimatePresence, motion, Variants } from 'framer-motion';
+
+/* NEXT */
 import { usePathname } from 'next/navigation';
+
+/* REACT */
 import React, { useEffect } from 'react';
 
 /* 애니메이션 설정 */
@@ -25,7 +30,7 @@ interface TransitionProviderProps {
 export default function TransitionProvider({ children }: TransitionProviderProps) {
     const pathname = usePathname();
 
-    // 스크롤 위치 초기화 로직 (유지)
+    /* 스크롤 위치 초기화 */
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [pathname]);

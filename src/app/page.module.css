@@ -3,12 +3,14 @@
     height: 800px;
     position: relative;
 }
+
 .background {
     width: 100%;
     height: 100%;
     object-fit: cover;
     filter: brightness(0.2);
 }
+
 .introContainer {
     width: 100%;
     position: absolute;
@@ -21,26 +23,31 @@
     align-items: center;
     gap: 40px;
 }
-.introContainer h2 {
+
+.introContainer h1 {
     color: #fff;
     font-size: 60px;
     font-weight: bold;
 }
+
 .introContainer p {
     font-size: 20px;
     color: #fff;
     line-height: 1.4;
 }
+
 .introContainer p em {
     font-size: 20px;
     color: #0064FF;
     font-weight: bold;
     font-style: normal;
 }
+
 .introLink {
     display: flex;
     gap: 20px;
 }
+
 .introLink a {
     border-radius: 50px;
     padding: 10px 20px;
@@ -51,6 +58,7 @@
     gap: 10px;
     transition: 0.5s;
 }
+
 .introLink a:hover {
     background: #003481;
 }
@@ -59,6 +67,7 @@
 .competencySection {
     padding: 100px 0;
 }
+
 .competencyTitle {
     margin-bottom: 40px;
     text-align: center;
@@ -66,21 +75,25 @@
     flex-flow: column nowrap;
     gap: 20px;
 }
+
 .competencyTitle h2 {
     color: #0064FF;
     font-weight: bold;
 }
+
 .competencyTitle p {
     font-size: 30px;
     font-weight: bold;
     color: #fff;
 }
+
 .competencyContainer {
     display: flex;
     gap: 40px;
     max-width: 1200px;
     margin: 0 auto;
 }
+
 .competencyCard {
     width: calc(100% / 3);
     display: flex;
@@ -90,17 +103,20 @@
     border-radius: 10px;
     padding: 20px;
 }
+
 .competencyIcon {
     display: flex;
     justify-content: center;
     align-items: center;
     width: max-content;
 }
+
 .competencyCard h3 {
     color: #fff;
     font-size: 20px;
     font-weight: bold;
 }
+
 .competencyCard p {
     color: #aaa;
     line-height: 1.4;
@@ -110,6 +126,7 @@
 .stackSection {
     padding: 100px 0;
 }
+
 .stackTitle {
     margin-bottom: 40px;
     text-align: center;
@@ -117,15 +134,18 @@
     flex-flow: column nowrap;
     gap: 20px;
 }
+
 .stackTitle h2 {
     color: #0064FF;
     font-weight: bold;
 }
+
 .stackTitle p {
     font-size: 30px;
     font-weight: bold;
     color: #fff;
 }
+
 .stackContainer {
     display: flex;
     flex-flow: column nowrap;
@@ -134,88 +154,214 @@
     max-width: 1200px;
     margin: 0 auto;
 }
+
 .stackMenu {
     display: flex;
-    border-radius: 10px;
-    padding: 10px;
-    width: max-content;
-    border: 1px solid #171717;
-    width: 800px;
-}
-.stackMenu button {
-    width: calc(100% / 3);
-    padding: 10px 0;
-    border-radius: 10px;
-    color: #aaa;
-    background: none;
-    font-size: 16px;
-}
-.stackMenu button.active {
-    background: #171717;
-    color: #fff;
-}
-.stackList {
-    display: flex;
-    flex-flow: row wrap;
-    gap: 20px;
-}
-.stackItem {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    width: calc(50% - 10px);
-    background: #171717;
-    border-radius: 10px;
-    padding: 20px;
-}
-.stackIcon {
-    display: flex;
     justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.stackMenu button {
+    padding: 12px 30px;
+    border-radius: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: transparent;
+    color: #666;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.stackMenu button.active {
+    background: #0064FF;
+    color: white;
+    border-color: #0064FF;
+    box-shadow: 0 10px 20px rgba(0, 100, 255, 0.2);
+}
+
+.stackList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 24px;
+    perspective: 1000px;
+}
+
+.stackItem {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.stackItem:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: #0064FF;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.stackMainInfo {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.stackIcon {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.stackNameTitle {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 10px;
+}
+
+.stackNameTitle h3 {
+    font-size: 1.25rem;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.statusBadge {
+    display: inline-block;
+    width: fit-content;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 2px 10px;
+    border-radius: 100px;
+    background: rgba(0, 100, 255, 0.15);
+    color: #0084ff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stackContent p {
+    font-size: 0.95rem;
+    color: #aaaaaa;
+    line-height: 1.6;
+    word-break: keep-all;
+}
+
+.trackArea {
+    margin-top: auto;
+    padding-top: 20px;
+}
+
+.trackLine {
+    position: relative;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    margin-bottom: 12px;
+}
+
+.milestones {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 0;
+}
+
+.milestones span {
+    width: 2px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+}
+
+.gauge {
+    position: absolute;
+    height: 100%;
+    background: linear-gradient(90deg, #0064FF, #00C2FF);
+    border-radius: 10px;
+    z-index: 1;
+    box-shadow: 0 0 15px rgba(0, 100, 255, 0.4);
+}
+
+.runner {
+    position: absolute;
+    top: -26px;
+    transform: translateX(-50%);
+    font-size: 22px;
+    z-index: 2;
+    text-shadow: 0 0 10px rgba(0, 100, 255, 0.8);
+}
+
+.trackInfo {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 }
-.stackContent {
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 10px;
+
+.paceLabel {
+    font-size: 11px;
+    font-weight: 900;
+    color: #444;
+    letter-spacing: 2px;
 }
-.stackContent h3 {
-    color: #fff;
-}
-.stackContent p {
-    color: #aaa;
-    line-height: 1.4;
+
+.levelValue {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0064FF;
 }
 
 /* PROJECT */
 .projectSection {
     padding: 100px 0;
 }
+
 .projectContainer {
     max-width: 1200px;
     margin: 0 auto;
 }
+
 .projectTop {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     margin-bottom: 40px;
 }
+
 .projectTitle {
     display: flex;
     flex-flow: column nowrap;
     gap: 20px;
 }
+
 .projectTitle h2 {
     font-size: 30px;
     font-weight: bold;
     color: #fff;
 }
+
 .projectTitle p {
     color: #aaa;
 }
+
 .projectSwiper {
     margin-bottom: 40px;
 }
+
 .navigationControl {
     width: max-content;
     display: flex;
@@ -224,6 +370,7 @@
     z-index: 10;
     pointer-events: none;
 }
+
 .customPrevButton,
 .customNextButton {
     cursor: pointer;
@@ -236,17 +383,20 @@
     justify-content: center;
     align-items: center;
 }
+
 .customPrevButton:global(.swiper-button-disabled),
 .customNextButton:global(.swiper-button-disabled) {
     opacity: 0.5;
     cursor: default;
     pointer-events: none;
 }
+
 .projectCard {
     display: flex;
     align-items: center;
     gap: 40px;
 }
+
 .projectImage {
     width: 50%;
     border-radius: 10px;
@@ -257,6 +407,7 @@
     align-items: center;
     transition: transform 0.3s ease;
 }
+
 .projectImage img {
     width: 85%;
     height: auto;
@@ -264,34 +415,41 @@
     filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
     transition: 0.5s ease;
 }
+
 .projectImage:hover img {
     transform: scale(1.05) translateY(-5px);
     filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.5));
 }
+
 .projectContent {
     display: flex;
     flex-flow: column nowrap;
     gap: 20px;
     width: 50%;
 }
+
 .projectContent h3 {
     color: #fff;
     font-size: 20px;
     font-weight: bold;
 }
+
 .projectContent p {
     color: #aaa;
     line-height: 1.4;
 }
+
 .projectButton {
     display: flex;
     justify-content: center;
 }
+
 .projectButton a {
     color: #0064FF;
     font-size: 20px;
     transition: 0.5s;
 }
+
 .projectButton:hover a {
     color: #003481;
 }
@@ -300,6 +458,7 @@
 .contactSection {
     padding: 100px 0;
 }
+
 .contactContainer {
     border-radius: 10px;
     background: #171717;
@@ -314,16 +473,19 @@
     background-repeat: no-repeat;
     background-size: 300px;
 }
+
 .contactContainer h2 {
     color: #fff;
     font-size: 30px;
     font-weight: bold;
     line-height: 1.4;
 }
+
 .contactContainer p {
     color: #aaa;
     line-height: 1.4;
 }
+
 .contactContainer a {
     color: #fff;
     border-radius: 50px;
@@ -332,6 +494,7 @@
     width: max-content;
     transition: 0.5s;
 }
+
 .contactContainer a:hover {
     background: #003481;
 }
@@ -341,117 +504,150 @@
     .introSection {
         height: 500px;
     }
+
     .introContainer {
         width: calc(100% - 40px);
         gap: 20px;
     }
-    .introContainer h2 {
+
+    .introContainer h1 {
         font-size: 30px;
     }
+
     .introContainer p {
         font-size: 16px;
     }
+
     .introContainer p em {
         font-size: 16px;
     }
+
     .introLink a {
         padding: 10px 20px;
     }
+
     .competencySection {
         padding: 100px 20px;
     }
+
     .competencyContainer {
         flex-flow: column nowrap;
         width: 100%;
     }
+
     .competencyCard {
         width: 100%;
     }
+
     .stackSection {
         padding: 100px 20px;
     }
+
     .projectContainer {
         padding: 0 20px;
     }
+
     .contactSection {
         padding: 100px 20px;
     }
 }
+
 @media (max-width: 800px) {
     .competencyContainer {
         gap: 20px;
     }
+
     .competencyTitle p {
         font-size: 20px;
         line-height: 1.4;
     }
+
     .competencyCard {
         gap: 10px;
     }
+
     .competencyCard h3 {
         font-size: 16px;
     }
+
     .competencyIcon img {
         width: 20px;
         height: 20px;
     }
+
     .stackTitle p {
         font-size: 20px;
     }
+
     .stackContainer {
         gap: 20px;
     }
+
     .stackMenu {
         width: 100%;
     }
+
     .stackItem {
         width: 100%;
     }
+
     .stackContent p {
         font-size: 14px;
     }
+
     .projectImage {
         width: 100%;
     }
+
     .projectContent {
         display: none;
     }
+
     .projectTop {
         justify-content: center;
         margin-bottom: 20px;
     }
+
     .projectTitle h2 {
         font-size: 20px;
         text-align: center;
     }
+
     .projectTitle p {
         text-align: center;
         line-height: 1.4;
     }
+
     .projectSwiper {
         margin-bottom: 20px;
     }
+
     .navigationControl {
         display: none;
     }
+
     .projectButton a {
         font-size: 16px;
     }
+
     .contactContainer {
         text-align: center;
-        background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-        url(../../public/images/icons/contact.png);
+        background-image:
+            linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url(../../public/images/icons/contact.png);
         background-size: contain;
         background-position: center center;
         padding: 40px;
     }
+
     .contactContainer h2 {
         font-size: 16px;
     }
+
     .contactContainer p {
         font-size: 14px;
     }
+
     .contactContainer a {
         width: 100%;
     }

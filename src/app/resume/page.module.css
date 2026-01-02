@@ -1,294 +1,296 @@
 .resumeSection {
-    padding: 200px 0;
-    max-width: 1200px;
+    padding: 180px 0;
+    max-width: 1100px;
     margin: 0 auto;
 }
+
 .introSection {
     display: flex;
-    flex-flow: column nowrap;
-    gap: 100px;
+    flex-direction: column;
+    gap: 80px;
 }
+
 .introTitle {
     display: flex;
-    flex-flow: column nowrap;
-    gap: 20px;
+    flex-direction: column;
+    gap: 24px;
 }
+
 .introTitle h2 {
     color: #fff;
-    font-size: 30px;
-    font-weight: bold;
-    line-height: 1.4;
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
 }
+
 .introTitle p {
-    line-height: 1.4;
-    color: #aaa;
-    width: 50%;
+    line-height: 1.6;
+    color: #999;
+    font-size: 18px;
+    max-width: 600px;
 }
+
 .introCall {
     display: flex;
-    flex-flow: column nowrap;
-    gap: 20px;
+    flex-direction: column;
+    gap: 32px;
 }
+
 .introCall h2 {
     color: #0064FF;
-    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
+
 .introCallList {
     display: flex;
-    flex-flow: column nowrap;
-    gap: 40px;
+    flex-direction: column;
+    gap: 48px;
 }
-.introLink {
+
+.introLink, .introContact {
     display: flex;
-    flex-flow: column nowrap;
-    gap: 10px;
+    flex-direction: column;
+    gap: 16px;
 }
-.introLink h3 {
-    font-size: 20px;
-    font-weight: bold;
-    color: #fff;
+
+.introLink h3, .introContact h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #eee;
 }
+
 .linkButton {
     display: flex;
-    gap: 10px;
+    flex-wrap: wrap;
+    gap: 12px;
 }
+
 .linkButton a {
-    background: #171717;
-    padding: 10px 20px;
-    border-radius: 10px;
+    background: #1a1a1a;
+    padding: 12px 24px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     gap: 10px;
-    color: #aaa;
-    transition: 0.5s;
+    color: #999;
+    font-size: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
 }
+
 .linkButton a:hover {
     color: #fff;
+    background: #222;
+    border-color: #0064FF;
 }
-.introContact {
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 10px;
-}
-.introContact h3 {
-    font-size: 20px;
-    font-weight: bold;
-    color: #fff;
-}
+
 .contactItem {
     display: flex;
     align-items: center;
-    gap: 10px;
-}
-.contactItem p {
-    color: #aaa;
+    gap: 12px;
 }
 
-/* CAREER */
-.careerSection {
-    padding-top: 100px;
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 20px;
+.contactItem p {
+    color: #999;
+    font-size: 15px;
 }
-.careerSection h2 {
+
+.careerSection, .stackSection, .educationSection {
+    padding-top: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.careerSection h2, .stackSection h2, .educationSection h2 {
     color: #0064FF;
-    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
-.careerList {
+
+.careerList, .educationList {
     display: flex;
-    flex-flow: column nowrap;
-    gap: 40px;
+    flex-direction: column;
+    gap: 64px;
 }
-.career {
+
+.career, .education {
     display: flex;
-    flex-flow: column nowrap;
-    gap: 20px;
+    flex-direction: column;
+    gap: 24px;
 }
-.carrerTitle {
+
+.carrerTitle, .educationTitle {
     display: flex;
-    align-items: flex-end;
-    gap: 10px;
+    align-items: baseline;
+    gap: 12px;
 }
-.carrerTitle h3 {
+
+.carrerTitle h3, .educationTitle h3 {
     color: #fff;
-    font-weight: bold;
-    font-size: 20px;
+    font-weight: 700;
+    font-size: 24px;
 }
-.carrerTitle p {
-    color: #aaa;
+
+.carrerTitle p, .educationTitle p {
+    color: #666;
+    font-size: 14px;
 }
+
 .careerSummary {
     color: #aaa;
-}
-.workList {
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 10px;
-}
-.workList li {
-    color: #aaa;
-}
-.projectList {
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 20px;
-}
-.project {
-    background: #171717;
-    border-radius: 10px;
-    padding: 40px;
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 20px;
-}
-.project h4 {
-    color: #fff;
-    font-size: 20px;
-    font-weight: bold;
-}
-.project p {
-    color: #aaa;
-    line-height: 1.4;
-}
-.projectScroll {
-    width: 100%;
-    overflow-y: auto;
-}
-.projectImage {
-    display: flex;
-    gap: 20px;
-    align-items: center;
+    line-height: 1.6;
+    font-size: 15px;
 }
 
-/* STACK */
-.stackSection {
-    padding-top: 100px;
+.workList, .contentList {
     display: flex;
-    flex-flow: column nowrap;
+    flex-direction: column;
+    gap: 12px;
+    padding-left: 18px;
+}
+
+.workList li, .contentList li {
+    color: #999;
+    list-style: disc;
+    line-height: 1.6;
+}
+
+.projectList {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.project {
+    background: #111;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
     gap: 20px;
 }
-.stackSection h2 {
-    color: #0064FF;
-    font-weight: bold;
+
+.project h4 {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
 }
+
+.project p {
+    color: #888;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.projectScroll {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.projectScroll::-webkit-scrollbar {
+    height: 4px;
+}
+
+.projectScroll::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 10px;
+}
+
+.projectImage {
+    display: flex;
+    gap: 16px;
+}
+
 .stackList {
     display: flex;
-    flex-flow: column nowrap;
-    gap: 20px;
+    flex-direction: column;
+    gap: 40px;
 }
+
 .stackCategory {
     display: flex;
-    flex-flow: column nowrap;
-    gap: 20px;
+    flex-direction: column;
+    gap: 16px;
 }
+
 .stackCategory h3 {
-    color: #fff;
-    font-size: 20px;
-    font-weight: bold;
+    color: #eee;
+    font-size: 16px;
+    font-weight: 600;
 }
+
 .stackItemList {
     display: flex;
-    flex-flow: row wrap;
-    gap: 10px;
+    flex-wrap: wrap;
+    gap: 8px;
 }
+
 .stackItem {
-    background: #171717;
-    border-radius: 10px;
-    padding: 10px 20px;
+    background: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    padding: 8px 16px;
     display: flex;
     align-items: center;
-    gap: 10px;
-    width: max-content;
+    gap: 8px;
+    transition: all 0.2s ease;
 }
+
+.stackItem:hover {
+    background: #222;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.stackContent {
+    color: #888;
+    font-size: 13px;
+    font-weight: 500;
+}
+
 .stackItem:hover .stackContent {
     color: #fff;
 }
-.stackContent {
-    color: #aaa;
-    transition: 0.5s;
-}
 
-/* EDUCATION */
-.educationSection {
-    padding-top: 100px;
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 20px;
-}
-.educationSection h2 {
-    color: #0064FF;
-    font-weight: bold;
-}
-.educationList {
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 20px;
-}
-.education {
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 20px;
-}
-.educationTitle h3 {
-    color: #fff;
-    font-weight: bold;
-    font-size: 20px;
-}
-.educationTitle p {
-    color: #aaa;
-}
-.educationTitle {
-    display: flex;
-    align-items: flex-end;
-    gap: 10px;
-}
-.contentList {
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 10px;
-}
-.contentList li {
-    color: #aaa;
-}
 
 /* 반응형 */
 @media (max-width: 1200px) {
     .resumeSection {
-        padding: 200px 20px;
-    }
-    .contentList li {
-        line-height: 1.4;
+        padding: 120px 24px;
     }
 }
+
 @media (max-width: 800px) {
     .resumeSection {
-        padding: 100px 20px;
+        padding: 80px 20px;
     }
+
     .introTitle h2 {
-        font-size: 20px;
+        font-size: 28px;
     }
+
     .introTitle p {
         width: 100%;
+        font-size: 16px;
     }
-    .carrerTitle {
-        flex-flow: column nowrap;
+
+    .carrerTitle, .educationTitle {
+        flex-direction: column;
         align-items: flex-start;
+        gap: 4px;
     }
-    .workList li {
-        line-height: 1.4;
+
+    .careerList, .educationList {
+        gap: 48px;
     }
+
     .project {
-        padding: 30px;
-    }
-    .stackItem h4 {
-        font-size: 14px;
-    }
-    .education h3 {
-        line-height: 1.4;
-    }
-    .educationTitle {
-        flex-flow: column nowrap;
-        align-items: flex-start;
+        padding: 24px;
     }
 }
